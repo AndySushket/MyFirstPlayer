@@ -1,5 +1,6 @@
  var MusicPlayer = function () {
      var player = this;
+     var mouseDownEvent;
      
     //init AudioContext
      (function(){
@@ -14,14 +15,14 @@
          player.gainNode.connect(destination);
          player.gainNode.gain.value = 1;
      })();
-     
-     
-     var mouseDownEvent;
+
      
      this.list = ["src/Arrow Benjamin - Love And Hate.mp3","src/Bloc Party - Truth.mp3","src/Sivert Høyem - Into the Sea.mp3","src/Linkin Park - Waiting For The End.mp3","src/Naughy Boy ft.Beyonce & Arrow Benjamin.mp3","src/Nine Inch Nails - Every Day is Exactly The Same.mp3", "src/Sivert Høyem - Prisoner of the Road.mp3", "src/Sivert Høyem - Görlitzer Park.mp3", "src/Bloc Party - Different Drugs.mp3", "src/Sivert Høyem - Running Out of Time.mp3", "src/Puscifer - Momma Sed (Tandimonium Mix).mp3", "src/Linkin Park - Pushing Me Away.mp3", "src/Naughty Boy & Emeli Sande - Lifted (feat. Emeli Sande).mp3"];
      this.NumberOfSong = 0;
      this.value = 0;
      this.shuffle = false;
+     this.hidePlaylist = true;
+     this.hidePlaylist = true;
      this.shuffleHistory=[];
          
      (function getDom() {
@@ -90,14 +91,9 @@
      function Timer(time){
          var seconds;
          var minutes = 0;
-         seconds = Math.round(time);
-         while (seconds >= 60) {
-            seconds -= 60;
-            minutes += 1
-         }
-         if (seconds < 10) {
-                seconds = "0" + seconds;
-            }
+        var minutes = Math.floor(time / 60);   
+        var seconds = Math.floor(time);
+        seconds = (seconds - (minutes * 60 )) < 10 ? ('0' + (seconds - (minutes * 60 ))) : (seconds - (minutes * 60 )); 
         time = minutes + ':' + seconds;
          return time;
      }
@@ -199,8 +195,6 @@
             if(MusicPlayer.shuffle == true){//for shuffle
                 MusicPlayer.shuffleHistory.splice(MusicPlayer.shuffleHistory.length-1,1);
                 if(MusicPlayer.shuffleHistory.length!=0){
-                    console.log(MusicPlayer.shuffleHistory);
-                    console.log(MusicPlayer.shuffleHistory.length-1);
                     MusicPlayer.NumberOfSong=MusicPlayer.shuffleHistory[MusicPlayer.shuffleHistory.length-1];
                     MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                     MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
@@ -221,14 +215,12 @@
              if(MusicPlayer.shuffle == true){
                  MusicPlayer.NumberOfSong=Math.round(Math.random()*(MusicPlayer.list.length - 1));
                  MusicPlayer.shuffleHistory.push(MusicPlayer.NumberOfSong);
-                 console.log(MusicPlayer.shuffleHistory);
                  MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                  MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
                  MusicPlayer.audio.play();
              }
              else if (MusicPlayer.NumberOfSong < MusicPlayer.list.length - 1) {
                  MusicPlayer.NumberOfSong++;
-                 console.log(MusicPlayer.NumberOfSong);
                  MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                  MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
                  MusicPlayer.audio.play();
@@ -246,9 +238,21 @@ var shuffle = new MusicPlayer.Button("shuffle", "buttons/shuffle.png", function 
          MusicPlayer.shuffle = false;
           document.getElementById("shuffle").style.background="rgba(0, 0, 0, 0)";
      }
-    console.log(MusicPlayer.shuffle)
  });
 
 MusicPlayer.addButtonsItem(shuffle);
+
+var hideList = new MusicPlayer.Button("hide", "buttons/playlist.png", function () {
+     if (MusicPlayer.hidePlaylist == false) {
+         document.getElementById("mainBlock").style.height="75px";
+         MusicPlayer.hidePlaylist = true;
+     }
+     else if(MusicPlayer.hidePlaylist == true) {
+         MusicPlayer.hidePlaylist = false;
+          document.getElementById("mainBlock").style.height="480px";
+     }
+ });
+
+MusicPlayer.addButtonsItem(hideList);
 
 MusicPlayer.initButtons();
