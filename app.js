@@ -1,16 +1,29 @@
  var MusicPlayer = function () {
      var player = this;
      var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
-     var analyser = audioCtx.createAnalyser();
-     var bufferLength = analyser.frequencyBinCount;
-     var activeBufferLength = bufferLength / 0.666;
+     audioCtx.crossOrigin = "anonymous";
+     var buffer,source,destination;
+     var audio = document.querySelector('audio');
+     source = audioCtx.createMediaElementSource(audio);
+     
+     destination = audioCtx.destination;
+     source.connect(destination);
+//     source.start(0);
+     var gainNode = audioCtx.createGain();
+     gainNode.gain.value = 0.1;
+     source.connect(gainNode);
+     gainNode.connect(destination);
+//     audioCtx.start(0);
+//     var analyser = audioCtx.createAnalyser();
+//     var bufferLength = analyser.frequencyBinCount;
+//     var activeBufferLength = bufferLength / 0.666;
      var mouseDownEvent;
-     this.gainNode = audioCtx.createGain();
+//     this.gainNode = audioCtx.createGain();
      //     var audioTag = document.querySelector('audio');
-     analyser.connect(this.gainNode);
-     this.gainNode.connect(audioCtx.destination);
-     var source = audioCtx.createBufferSource();
-     source.connect(this.gainNode);
+//     analyser.connect(this.gainNode);
+//     this.gainNode.connect(audioCtx.destination);
+//     var source = audioCtx.createBufferSource();
+//     source.connect(this.gainNode);
      //     audioCtx.crossOrigin = "anonymous";
      //     var source1 = audioCtx.createMediaElementSource(document.getElementById("player"));
      //     source1.connect(analyser);
@@ -66,12 +79,12 @@
      function setVol(value) {
 //         player.gainNode.gain.value = value;
          player.audio.volume = value;
-         console.log(player.gainNode.gain.value);
+//         console.log(player.gainNode.gain.value);
          document.getElementById("current-volume").style.width = (119 * value) + "px";
      }
 
      function setTime(value) {
-         player.value = value;
+         gainNode.gain.value=value;
          var duration = player.audio.duration;
          var durationInProc = duration / 100;
          player.audio.currentTime = durationInProc * value * 100;
@@ -110,7 +123,8 @@
          div.innerHTML+=item;
          div.onclick=function(){
              console.log(i);
-             player.audio.src=player.list[i];
+             player.NumberOfSong=i;
+             player.audio.src=player.list[player.NumberOfSong];
              player.audio.play();
          }
 //         var playlist=document.createElement("div");
