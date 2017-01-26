@@ -144,7 +144,6 @@
 //         div.className = "song";  
          item=item.replace(reg,"");
          item=item.replace(mp3,"");
-         console.log(item);
          div.innerHTML += item;
          div.onclick = function () {
              player.NumberOfSong = index;
