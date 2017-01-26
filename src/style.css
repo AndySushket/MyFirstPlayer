@@ -1,43 +1,50 @@
 @import url(http://fonts.googleapis.com/css?family=Play);
+
 body {
     margin: 0;
     padding: 0;
 }
 
+#mainBlock {
+    position: relative;
+    margin: 50px auto;
+    width: 500px;
+    min-height: 480px;
+    border-radius: 4px;
+    background: #beffaa;
+    box-shadow: 0px 0px 3px black;
+}
+
 #buttons {
     position: relative;
-    top:-14px;
+    top: -14px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.28);
     min-height: 50px;
     background: linear-gradient(to top, rgba(163, 209, 248, 0.36), #beffaa, rgba(163, 209, 248, 0.36));
-    ;
 }
 
-button{
+button {
     background: rgba(0, 0, 0, 0);
 }
 
 .button {
     float: left;
-    margin: 9px;
+    margin: 9px 0px 0px 9px;
 }
 
-#volume input[type="range"] {
+input[type="range"] {
     z-index: 1;
     position: relative;
     outline: none;
     -webkit-appearance: none;
     height: 8px;
-    width: 119px;
     background: rgba(0, 0, 0, 0.8);
-    left: 353px;
-    top: 44px;
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
 }
 
-#volume input[type="range"]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     height: 7px;
     width: 10px;
@@ -45,45 +52,42 @@ button{
 
 #volume #current-volume {
     z-index: 2;
-    position: relative;
-    display: inline-block;
     position: absolute;
+    left: 355px;
+    top: 48px;
     background: #3af;
     height: 4px;
     width: 119px;
-    left: 355px;
-    top: 48px;
     pointer-events: none;
     transition: all .2s ease;
 }
 
+#volume input[type="range"] {
+    width: 119px;
+    left: 353px;
+    top: 44px;
+}
+
 #time input[type="range"] {
-    z-index: 1;
-    position: relative;
-    outline: none;
-    -webkit-appearance: none;
-    height: 8px;
     width: 449px;
-    background: rgba(0, 0, 0, 0.8);
     left: 24px;
     top: 2px;
-    display: inline-block;
-    vertical-align: top;
-    cursor: pointer;
 }
 
-#time{
+#timer {
+    position: absolute;
+    left: 250px;
+    top: 13px;
+    font-size: 20px;
+    font-family: play;
+}
+
+#time {
     position: relative;
     height: 20px;
-    top:-13px;
+    top: -13px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.24);
-    background: linear-gradient(to top, rgba(163, 209, 248, 0.36),#beffaa );
-}
-
-#time input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 7px;
-    width: 10px;
+    background: linear-gradient(to top, rgba(163, 209, 248, 0.36), #beffaa);
 }
 
 #time #currentTime {
@@ -97,50 +101,36 @@ button{
     left: 26px;
     top: 5px;
     pointer-events: none;
-/*    transition: all .1s ease;*/
+    /*    transition: all .1s ease;*/
 }
 
-#playlist{
+#playlist {
     position: absolute;
-    top:76px;
-    min-height: 425px;
+    top: 76px;
     width: 100%;
-/*    background: black;*/
-/*    height: 100px;*/
+    max-height: 423px;
+    overflow-y: auto;
 }
-.song{
+
+.song {
+    background: linear-gradient(to top, rgba(163, 209, 248, 0.26), #beffaa, rgba(163, 209, 248, 0.26));
     cursor: default;
     font-family: play;
     height: 30px;
     line-height: 30px;
-    padding-left:15px;
-     border-bottom: 1px solid rgba(0, 0, 0, 0.24);
-}
-.song:hover{
-     background: rgba(90, 255, 39, 0.26);
-     transition: all .5s ease;
-}
-.chosen{
-     background: rgba(90, 255, 39, 0.26);
-    
+    padding-left: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.24);
 }
 
-
-.song img{
-    position:relative;
-    height: 15px;
-    top: 4px;
-    margin-right:5px;
-    display: none;
+.song:last-child {
+    border: none;
 }
 
-#mainBlock {
-    position: relative;
-    margin: 50px auto;
-    width: 500px;
-    min-height: 500px;
+.song:hover {
+    background: rgba(90, 255, 39, 0.26);
+    transition: all .5s ease;
+}
 
-    border-radius: 4px;
-    background: #beffaa;
-    box-shadow: 0px 0px 3px black;
+.playing {
+    background: rgba(90, 255, 39, 0.26);
 }
