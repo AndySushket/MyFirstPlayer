@@ -257,6 +257,7 @@
 var shuffle = new MusicPlayer.Button("shuffle", "buttons/shuffle.png", function () {
      if (MusicPlayer.shuffle == false) {
          document.getElementById("shuffle").style.background="rgba(54, 252, 0, 0.27)";
+         MusicPlayer.shuffleHistory=[];
          MusicPlayer.shuffle = true;
      }
      else if(MusicPlayer.shuffle == true) {
