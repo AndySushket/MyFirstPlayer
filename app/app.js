@@ -13,7 +13,7 @@
          player.gainNode = audioCtx.createGain(); //Gain 
          source.connect(player.gainNode);
          player.gainNode.connect(destination);
-         player.gainNode.gain.value = 1;
+         player.gainNode.gain.value = 0.5;
      })();
 
      
