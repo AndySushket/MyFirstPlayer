@@ -186,7 +186,7 @@
                      img.src = button.icon;
                      button.view.appendChild(img);
                  }
-                 button.view.addEventListener('click', button.func);
+                 button.view.addEventListener('mouseup', button.func);
              };
          }
  };
