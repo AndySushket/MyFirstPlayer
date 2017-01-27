@@ -215,6 +215,7 @@
                     MusicPlayer.pause();
                     MusicPlayer.play();
                     MusicPlayer.audio.play();
+                    document.getElementById("play").firstChild.src = "buttons/pause.png";
                 } 
              }
             else if (MusicPlayer.NumberOfSong > 0) {
@@ -224,6 +225,7 @@
                  MusicPlayer.pause();
                  MusicPlayer.play();
                  MusicPlayer.audio.play();
+                 document.getElementById("play").firstChild.src = "buttons/pause.png";
              }
  });
 
@@ -238,6 +240,7 @@
                  MusicPlayer.pause();
                  MusicPlayer.play();
                  MusicPlayer.audio.play();
+                 document.getElementById("play").firstChild.src = "buttons/pause.png";
              }
              else if (MusicPlayer.NumberOfSong < MusicPlayer.list.length - 1) {
                  MusicPlayer.NumberOfSong++;
@@ -246,6 +249,7 @@
                  MusicPlayer.pause();
                  MusicPlayer.play();
                  MusicPlayer.audio.play();
+                 document.getElementById("play").firstChild.src = "buttons/pause.png";
              }
  });
 
