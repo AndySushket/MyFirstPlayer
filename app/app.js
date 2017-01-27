@@ -38,7 +38,8 @@
      this.audio.src = player.list[this.NumberOfSong];
      this.mainBlock.buttons = {};
      this.mainBlock.buttons.items = [];
-     
+  
+         //adding our buttons to nav panel
      this.initButtons = function () {
          var buttons = document.getElementById("buttons");
          player.mainBlock.appendChild(buttons);
@@ -52,7 +53,8 @@
              player.mainBlock.buttons.appendChild(item.view);
          }
      };
-     
+  
+           //Set current time of song
      this.timeLine.addEventListener('mouseup', function () {
          setTime(player.timeLine.value);
          player.currentTime.style.width = (player.timeLine.value * 449) + "px";   
@@ -80,14 +82,14 @@
          document.getElementById("current-volume").style.width = (119 * value) + "px";
      }
      
-     //Method to set time of song
+                     //Method to set time of song
      function setTime(value) {
          var duration = player.audio.duration;
          var durationInProc = duration / 100;
          player.audio.currentTime = durationInProc * value * 100;
      }
      
-     //Timer
+                //Timer
      function Timer(time){
          var seconds;
          var minutes = 0;
@@ -103,7 +105,7 @@
              }
      }
      
-     //Current tTime of song
+                //Scaning and set current Time of song
      this.play=function(){
          player.playing=setInterval(function () {
          var duration = player.audio.duration;
@@ -129,16 +131,18 @@
          document.getElementById("timer").innerHTML=Timer(Current)+"/"+Timer(duration);
      }, 1000);
     }
+              //Stop scaning
      this.pause=function(){
          clearInterval(player.playing);
      }
      
-    //Playing Song in List
+              //Playing Song in List
      this.CurrentSong=function(song){
          document.querySelector(".playing").className="song";
          document.getElementById("playlist").children[song].className="song playing";
      };
-      //Playlist 
+  
+               //init Playlist 
      player.list.forEach(function (item, index) {
          var div = document.createElement("div");
          var reg=/src\//g;
@@ -167,11 +171,11 @@
      
      setVol(0.5); 
      
-     //our buttons :D
+           //our buttons in Array :D
      this.addButtonsItem = function (item) {
          player.mainBlock.buttons.items.push(item);
      };
-     
+           //Constructor of Buttons
      this.Button = function (name, icon, func) {
              var button = this;
              this.name = name;
@@ -190,8 +194,11 @@
              };
          }
  };
+
+         //Make our player as new Object
  var MusicPlayer = new MusicPlayer();
 
+       //Buttons 
  var play = new MusicPlayer.Button("play", "buttons/play.png", function () {
              if (MusicPlayer.audio.paused) {
                  MusicPlayer.play();
