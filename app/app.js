@@ -115,7 +115,7 @@
          player.currentTime.style.width = (Margin * 449) + "px";
          if (Margin == 1) {
              if(player.shuffle == true){
-                 player.NumberOfSong=Math.round(Math.random()*(player.list.length - 1));
+                 player.NumberOfSong=Math.floor(Math.random()*(player.list.length - 1));
                  player.CurrentSong(player.NumberOfSong);
                  player.audio.src = player.list[player.NumberOfSong];
                  player.audio.play();
@@ -219,47 +219,37 @@
                 MusicPlayer.shuffleHistory.splice(MusicPlayer.shuffleHistory.length-1,1);
                 if(MusicPlayer.shuffleHistory.length!=0){
                     MusicPlayer.NumberOfSong=MusicPlayer.shuffleHistory[MusicPlayer.shuffleHistory.length-1];
-                    MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
-                    MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
-                    MusicPlayer.pause();
-                    MusicPlayer.play();
-                    MusicPlayer.audio.play();
-                    document.getElementById("play").firstChild.src = "buttons/pause.png";
                 } 
              }
             else if (MusicPlayer.NumberOfSong > 0) {
                  MusicPlayer.NumberOfSong--;
-                 MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
-                 MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
-                 MusicPlayer.pause();
-                 MusicPlayer.play();
-                 MusicPlayer.audio.play();
-                 document.getElementById("play").firstChild.src = "buttons/pause.png";
-             }
+            }
+             MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
+            MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
+            MusicPlayer.pause();
+            MusicPlayer.play();
+            MusicPlayer.audio.play();
+            document.getElementById("play").firstChild.src = "buttons/pause.png";
+               
  });
 
  MusicPlayer.addButtonsItem(backward);
 
  var forward = new MusicPlayer.Button("forward", "buttons/forward.png", function () {
              if(MusicPlayer.shuffle == true){
-                 MusicPlayer.NumberOfSong=Math.round(Math.random()*(MusicPlayer.list.length - 1));
+                 MusicPlayer.NumberOfSong=Math.floor(Math.random()*(MusicPlayer.list.length - 1));
                  MusicPlayer.shuffleHistory.push(MusicPlayer.NumberOfSong);
-                 MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
-                 MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
-                 MusicPlayer.pause();
-                 MusicPlayer.play();
-                 MusicPlayer.audio.play();
-                 document.getElementById("play").firstChild.src = "buttons/pause.png";
              }
              else if (MusicPlayer.NumberOfSong < MusicPlayer.list.length - 1) {
                  MusicPlayer.NumberOfSong++;
-                 MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
-                 MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
-                 MusicPlayer.pause();
-                 MusicPlayer.play();
-                 MusicPlayer.audio.play();
-                 document.getElementById("play").firstChild.src = "buttons/pause.png";
+                 
              }
+              MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
+              MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
+              MusicPlayer.pause();
+              MusicPlayer.play();
+              MusicPlayer.audio.play();
+              document.getElementById("play").firstChild.src = "buttons/pause.png";
  });
 
  MusicPlayer.addButtonsItem(forward);
