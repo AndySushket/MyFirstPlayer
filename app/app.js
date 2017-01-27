@@ -150,7 +150,6 @@
          if(index>0) {
              div.className = "song";
          }
-//         div.className = "song";  
          item=item.replace(reg,"");
          item=item.replace(mp3,"");
          div.innerHTML += item;
