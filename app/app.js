@@ -114,11 +114,13 @@
          if (Margin == 1) {
              if(player.shuffle == true){
                  player.NumberOfSong=Math.round(Math.random()*(player.list.length - 1));
+                 player.CurrentSong(player.NumberOfSong);
                  player.audio.src = player.list[player.NumberOfSong];
                  player.audio.play();
              }
              else if (player.NumberOfSong < player.list.length - 1) {
                  player.NumberOfSong++;
+                 player.CurrentSong(player.NumberOfSong);
                  player.audio.src = player.list[player.NumberOfSong];
                  player.audio.play();
              }
