@@ -84,7 +84,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 #timer {
     position: absolute;
-    left: 256px;
+    left: 258px;
     top: 13px;
     font-size: 20px;
     font-family: play;
