@@ -8,16 +8,16 @@
          var source, destination;
          var audio = document.querySelector('audio');
          source = audioCtx.createMediaElementSource(audio); //source of sound
-         destination = audioCtx.destination;
+         destination = audioCtx.destination;// our Speakers :D
          source.connect(destination);
-         player.gainNode = audioCtx.createGain();
+         player.gainNode = audioCtx.createGain(); //Gain 
          source.connect(player.gainNode);
          player.gainNode.connect(destination);
          player.gainNode.gain.value = 1;
      })();
 
      
-     this.list = ["src/Arrow Benjamin - Love And Hate.mp3","src/Bloc Party - Truth.mp3","src/Sivert Høyem - Into the Sea.mp3","src/Linkin Park - Waiting For The End.mp3","src/Naughy Boy ft.Beyonce & Arrow Benjamin.mp3","src/Nine Inch Nails - Every Day is Exactly The Same.mp3", "src/Sivert Høyem - Prisoner of the Road.mp3", "src/Sivert Høyem - Görlitzer Park.mp3", "src/Bloc Party - Different Drugs.mp3", "src/Sivert Høyem - Running Out of Time.mp3", "src/Puscifer - Momma Sed (Tandimonium Mix).mp3", "src/Linkin Park - Pushing Me Away.mp3", "src/Naughty Boy & Emeli Sande - Lifted (feat. Emeli Sande).mp3"];
+     this.list = ["src/Bloc Party - Truth.mp3","src/Arrow Benjamin - Love And Hate.mp3","src/Sivert Høyem - Into the Sea.mp3","src/Linkin Park - Waiting For The End.mp3","src/Naughy Boy ft.Beyonce & Arrow Benjamin.mp3","src/Nine Inch Nails - Every Day is Exactly The Same.mp3", "src/Sivert Høyem - Prisoner of the Road.mp3", "src/Sivert Høyem - Görlitzer Park.mp3", "src/Bloc Party - Different Drugs.mp3", "src/Sivert Høyem - Running Out of Time.mp3", "src/Puscifer - Momma Sed (Tandimonium Mix).mp3", "src/Linkin Park - Pushing Me Away.mp3", "src/Naughty Boy & Emeli Sande - Lifted (feat. Emeli Sande).mp3"];
      this.NumberOfSong = 0;
      this.value = 0;
      this.shuffle = false;
@@ -93,13 +93,19 @@
          var minutes = 0;
         var minutes = Math.floor(time / 60);   
         var seconds = Math.floor(time);
-        seconds = (seconds - (minutes * 60 )) < 10 ? ('0' + (seconds - (minutes * 60 ))) : (seconds - (minutes * 60 )); 
-        time = minutes + ':' + seconds;
+         if(isNaN(seconds)||isNaN(minutes)){
+             return "0:00";
+         }
+         else {
+            seconds = (seconds - (minutes * 60 )) < 10 ? ('0' + (seconds - (minutes * 60 ))) : (seconds - (minutes * 60 )); 
+            time = minutes + ':' + seconds;
          return time;
+             }
      }
      
      //Current tTime of song
-     setInterval(function () {
+     this.play=function(){
+         player.playing=setInterval(function () {
          var duration = player.audio.duration;
          var Current = player.audio.currentTime;
          
@@ -120,6 +126,10 @@
          
          document.getElementById("timer").innerHTML=Timer(Current)+"/"+Timer(duration);
      }, 1000);
+    }
+     this.pause=function(){
+         clearInterval(player.playing);
+     }
      
     //Playing Song in List
      this.CurrentSong=function(song){
@@ -145,6 +155,8 @@
              player.NumberOfSong = index;
              player.audio.src = player.list[player.NumberOfSong];
              player.CurrentSong(player.NumberOfSong);
+             player.pause();
+             player.play();
              player.audio.play();
              document.getElementById("play").firstChild.src = "buttons/pause.png";
          };
@@ -180,10 +192,12 @@
 
  var play = new MusicPlayer.Button("play", "buttons/play.png", function () {
              if (MusicPlayer.audio.paused) {
+                 MusicPlayer.play();
                  MusicPlayer.audio.play();
                  document.getElementById("play").firstChild.src = "buttons/pause.png";
              }
              else {
+                 MusicPlayer.pause();
                  MusicPlayer.audio.pause();
                  document.getElementById("play").firstChild.src = "buttons/play.png";
              }
@@ -198,6 +212,8 @@
                     MusicPlayer.NumberOfSong=MusicPlayer.shuffleHistory[MusicPlayer.shuffleHistory.length-1];
                     MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                     MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
+                    MusicPlayer.pause();
+                    MusicPlayer.play();
                     MusicPlayer.audio.play();
                 } 
              }
@@ -205,6 +221,8 @@
                  MusicPlayer.NumberOfSong--;
                  MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                  MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
+                 MusicPlayer.pause();
+                 MusicPlayer.play();
                  MusicPlayer.audio.play();
              }
  });
@@ -217,12 +235,16 @@
                  MusicPlayer.shuffleHistory.push(MusicPlayer.NumberOfSong);
                  MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                  MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
+                 MusicPlayer.pause();
+                 MusicPlayer.play();
                  MusicPlayer.audio.play();
              }
              else if (MusicPlayer.NumberOfSong < MusicPlayer.list.length - 1) {
                  MusicPlayer.NumberOfSong++;
                  MusicPlayer.audio.src = MusicPlayer.list[MusicPlayer.NumberOfSong];
                  MusicPlayer.CurrentSong(MusicPlayer.NumberOfSong);
+                 MusicPlayer.pause();
+                 MusicPlayer.play();
                  MusicPlayer.audio.play();
              }
  });
