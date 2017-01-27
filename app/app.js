@@ -101,8 +101,8 @@
          else {
             seconds = (seconds - (minutes * 60 )) < 10 ? ('0' + (seconds - (minutes * 60 ))) : (seconds - (minutes * 60 )); 
             time = minutes + ':' + seconds;
-         return time;
-             }
+            return time;
+          }
      }
      
                 //Scaning and set current Time of song
@@ -116,16 +116,13 @@
          if (Margin == 1) {
              if(player.shuffle == true){
                  player.NumberOfSong=Math.floor(Math.random()*(player.list.length - 1));
-                 player.CurrentSong(player.NumberOfSong);
-                 player.audio.src = player.list[player.NumberOfSong];
-                 player.audio.play();
              }
              else if (player.NumberOfSong < player.list.length - 1) {
                  player.NumberOfSong++;
-                 player.CurrentSong(player.NumberOfSong);
-                 player.audio.src = player.list[player.NumberOfSong];
-                 player.audio.play();
              }
+             player.CurrentSong(player.NumberOfSong);
+             player.audio.src = player.list[player.NumberOfSong];
+             player.audio.play();
          }
          
          document.getElementById("timer").innerHTML=Timer(Current)+"/"+Timer(duration);
