@@ -44,12 +44,29 @@ input[type="range"] {
     z-index: 1;
     position: relative;
     outline: none;
+    appearance: none;
     -webkit-appearance: none;
+    -moz-appearance: button;
     height: 8px;
     background: rgba(0, 0, 0, 0.8);
     display: inline-block;
     vertical-align: top;
     cursor: pointer;
+}
+
+input[type=range]::-moz-range-track {
+    height: 5px;
+    background-color: black;
+    border: none;
+    margin: -5px;
+    padding: -5px;
+}
+
+input[type=range]::-moz-range-thumb{
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    height: 7px;
+    width: 10px;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -62,13 +79,15 @@ input[type="range"]::-webkit-slider-thumb {
     z-index: 2;
     position: absolute;
     left: 355px;
-    top: 48px;
+    top: 47px;
     background: #3af;
-    height: 4px;
+    height: 6px;
     width: 119px;
     pointer-events: none;
     transition: all .2s ease;
 }
+
+
 
 #volume input[type="range"] {
     width: 119px;
@@ -109,7 +128,34 @@ input[type="range"]::-webkit-slider-thumb {
     left: 26px;
     top: 5px;
     pointer-events: none;
-    /*    transition: all .1s ease;*/
+}
+
+html>body #volume #current-volume, x:-moz-any-link, x:default {
+  left: 355px;
+    top: 48px;
+}
+
+html>body #time #currentTime, x:-moz-any-link, x:default {
+    left:26px;
+    top:3px;
+}
+
+html>body input[type="range"], x:-moz-any-link, x:default {
+   margin-left: 2px;
+  height: 6px;
+}
+
+html>body input[type="range"]#volume-bar, x:-moz-any-link, x:default {
+   margin-top: 3px;
+  height: 6px;
+}
+
+html>/**/body button, x:-moz-any-link, x:default {
+  padding: 0px 3px 0px 2px;
+  border-radius: 3px;
+  box-shadow: 0 -1px rgb(53,167,110) inset;
+  transition: 0.4s;
+  background: rgba(0, 0, 0, 0);
 }
 
 #playlist {
