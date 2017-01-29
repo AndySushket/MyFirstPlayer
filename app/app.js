@@ -28,7 +28,7 @@ window.onload = function () {
         player.gainNode.gain.value = 0.5;
         
         
-        // trying to learn canvas (I still learn the canvas,so..the visualization code is not mine,but here you can see what Audio Web API works)
+        // trying to learn canvas (the par of visualization code is not mine,srry :D)
         var canvas = document.querySelector("#myCanvas");
         var width = canvas.width;
         var height = canvas.height;
