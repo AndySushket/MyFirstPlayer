@@ -21,7 +21,6 @@
      this.NumberOfSong = 0;
      this.shuffle = false;
      this.hidePlaylist = true;
-     this.hidePlaylist = true;
      this.shuffleHistory=[];
          
      (function getDom() {
@@ -42,7 +41,6 @@
      this.initButtons = function () {
          var buttons = document.getElementById("buttons");
          player.mainBlock.appendChild(buttons);
-         player.mainBlock.appendChild(player.audio);
          var copiedButtonsItems = player.mainBlock.buttons.items;
          player.mainBlock.buttons = buttons;
          player.mainBlock.buttons.items = copiedButtonsItems;
