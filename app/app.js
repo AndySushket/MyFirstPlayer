@@ -80,7 +80,7 @@ window.onload = function () {
         }
         
         
-        this.list = ["src/Bloc Party - Truth.mp3", "src/Arrow Benjamin - Love And Hate.mp3", "src/Sivert Høyem - Into the Sea.mp3", "src/Linkin Park - Waiting For The End.mp3", "src/Naughty Boy - Runnin' (Lose It All) ft. Beyoncé, Arrow Benjamin.mp3", "src/Nine Inch Nails - Every Day is Exactly The Same.mp3", "src/Sivert Høyem - Prisoner of the Road.mp3", "src/Sivert Høyem - Görlitzer Park.mp3", "src/Bloc Party - Different Drugs.mp3", "src/Sivert Høyem - Running Out of Time.mp3", "src/Puscifer - Momma Sed (Tandimonium Mix).mp3", "src/Linkin Park - Pushing Me Away.mp3", "src/Naughty Boy & Emeli Sande - Lifted (feat. Emeli Sande).mp3"];
+        this.list = ["src/Sivert Høyem - Prisoner of the Road.mp3", "src/Bloc Party - Truth.mp3", "src/Arrow Benjamin - Love And Hate.mp3", "src/Sivert Høyem - Into the Sea.mp3", "src/Linkin Park - Waiting For The End.mp3", "src/Naughty Boy - Runnin' (Lose It All) ft. Beyoncé, Arrow Benjamin.mp3", "src/Nine Inch Nails - Every Day is Exactly The Same.mp3",  "src/Sivert Høyem - Görlitzer Park.mp3", "src/Bloc Party - Different Drugs.mp3", "src/Sivert Høyem - Running Out of Time.mp3", "src/Puscifer - Momma Sed (Tandimonium Mix).mp3", "src/Linkin Park - Pushing Me Away.mp3", "src/Naughty Boy & Emeli Sande - Lifted (feat. Emeli Sande).mp3"];
         this.NumberOfSong = 0;
         this.shuffle = false;
         this.hidePlaylist = true;
