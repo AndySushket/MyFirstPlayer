@@ -28,7 +28,7 @@ window.onload = function () {
         player.gainNode.gain.value = 0.5;
         
         
-        // trying to learn canvas (the par of visualization code is not mine,srry :D)
+        // trying to learn canvas (the part of visualization code is not mine,srry :D)
         var canvas = document.querySelector("#myCanvas");
         var width = canvas.width;
         var height = canvas.height;
