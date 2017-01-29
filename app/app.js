@@ -39,7 +39,6 @@ window.onload = function () {
 
         function buildAudioGraph() {
             player.analyser = audioCtx.createAnalyser();
-            // set its properties
             player.analyser.fftSize = 1024;
             // its size is always the fftSize / 2
             player.bufferLength = player.analyser.frequencyBinCount;
@@ -50,12 +49,8 @@ window.onload = function () {
         }
 
         function visualize() {
-            // clear the canvas 
-            //canvasContext.clearRect(0, 0, width, height);
             canvasContext.fillStyle = 'rgba(0, 0, 0, 0.5)';
             canvasContext.fillRect(0, 0, width, height);
-            // We will draw it as a path of connected lines
-            // First, clear the previous path that was in the buffer
             canvasContext.beginPath();
             // draw the data as a waveform
             // Get the data from the analyser
