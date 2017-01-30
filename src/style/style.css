@@ -137,7 +137,7 @@ html>body #time #currentTime,
 x:-moz-any-link,
 x:default {
     left: 26px;
-    top: 3px;
+    top: 1px;
 }
 
 html>body input[type="range"],
