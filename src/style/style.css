@@ -115,7 +115,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 #time #currentTime {
     z-index: 3;
-    position: relative;
     display: inline-block;
     position: absolute;
     background: #3af;
