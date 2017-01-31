@@ -140,8 +140,7 @@ window.onload = function () {
         //Method to set time of song
         function setTime(value) {
             var duration = player.audio.duration;
-            var durationInProc = duration / 100;
-            player.audio.currentTime = durationInProc * value * 100;
+            player.audio.currentTime = duration * value;
         }
         
         
