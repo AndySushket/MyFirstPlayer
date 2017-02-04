@@ -5,7 +5,7 @@ body {
     background: rgba(32, 201, 118, 0.57);
 }
 
-#mainBlock {
+.mainBlock {
     position: relative;
     width: 500px;
     height: 75px;
@@ -18,7 +18,7 @@ body {
     transition: all .4s ease;
 }
 
-#buttons {
+.buttons {
     position: relative;
     top: -14px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.28);
@@ -73,7 +73,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 10px;
 }
 
-#volume #current-volume {
+.volume .current-volume {
     z-index: 2;
     position: absolute;
     left: 355px;
@@ -85,19 +85,19 @@ input[type="range"]::-webkit-slider-thumb {
     transition: all .2s ease;
 }
 
-#volume input[type="range"] {
+.volume input[type="range"] {
     width: 119px;
     left: 353px;
     top: 44px;
 }
 
-#time input[type="range"] {
+.time input[type="range"] {
     width: 449px;
     left: 24px;
     top: 0px;
 }
 
-#timer {
+.timer {
     position: absolute;
     left: 258px;
     top: 13px;
@@ -105,7 +105,7 @@ input[type="range"]::-webkit-slider-thumb {
     font-family: play;
 }
 
-#time {
+.time {
     position: relative;
     height: 20px;
     top: -13px;
@@ -113,7 +113,7 @@ input[type="range"]::-webkit-slider-thumb {
     background: linear-gradient(to top, rgba(163, 209, 248, 0.36), #beffaa);
 }
 
-#time #currentTime {
+.time .currentTime {
     z-index: 3;
     display: inline-block;
     position: absolute;
@@ -125,14 +125,14 @@ input[type="range"]::-webkit-slider-thumb {
     pointer-events: none;
 }
 
-html>body #volume #current-volume,
+html>body .volume .current-volume,
 x:-moz-any-link,
 x:default {
     left: 355px;
     top: 48px;
 }
 
-html>body #time #currentTime,
+html>body .time .currentTime,
 x:-moz-any-link,
 x:default {
     left: 26px;
@@ -146,7 +146,7 @@ x:default {
     height: 6px;
 }
 
-html>body input[type="range"]#volume-bar,
+html>body input[type="range"].volume-bar,
 x:-moz-any-link,
 x:default {
     margin-top: 3px;
@@ -163,7 +163,7 @@ x:default {
     background: rgba(0, 0, 0, 0);
 }
 
-#playlist {
+.playlist {
     position: absolute;
     top: 76px;
     width: 100%;
@@ -194,7 +194,7 @@ x:default {
     background: rgba(90, 255, 39, 0.26);
 }
 
-#MyPlayer {
+.MyPlayer {
     width: 500px;
     height: auto;
     margin: 40px auto;
@@ -203,7 +203,7 @@ x:default {
     border-radius: 5px;
 }
 
-#myCanvas {
+.myCanvas {
     position: relative;
     width: 498px;
     height: 100px;
