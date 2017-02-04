@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="src/style/style.css">
-    <title>Document</title>
+    <title>Player</title>
 </head>
 
 <body>
-   <div id="MyPlayer">
-        <canvas id="myCanvas"></canvas>
-        <div id="mainBlock">
-            <div id="panel">
-                <div id="buttons"> <span id="timer">0:00/0:00</span> </div>
-                <audio src="" id="player"></audio>
-                <div id="volume">
-                    <input min="0" max="1" step="0.01" id="volume-bar" type="range">
-                    <div id="current-volume"></div>
+   <div class="MyPlayer">
+        <canvas class="myCanvas"></canvas>
+        <div class="mainBlock">
+            <div class="panel">
+                <div class="buttons"> <span class="timer">0:00/0:00</span> </div>
+                <audio src="" class="player" ontimeupdate="MusicPlayer.playing()"></audio>
+                <div class="volume">
+                    <input min="0" max="1" step="0.01" class="volume-bar" type="range">
+                    <div class="current-volume"></div>
                 </div>
-                <div id="time">
-                    <input min="0" max="1" step="0.01" id="timeLine" type="range">
-                    <div id="currentTime"></div>
+                <div class="time">
+                    <input min="0" max="1" step="0.01" class="timeLine" type="range">
+                    <div class="currentTime"></div>
                 </div>
             </div>
-            <div id="playlist"> </div>
+            <div class="playlist"> </div>
         </div>
     </div>
 </body>
